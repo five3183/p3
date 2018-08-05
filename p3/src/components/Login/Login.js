@@ -47,7 +47,7 @@ window.onload = function() {
 		console.log("email: " + email)
 		console.log("password: " + password)
 	})
-	LOGIN = (email, password)=> {
+	const LOGIN = (email, password)=> {
 		fetch("/login", {
     	headers: {
 			'Accept': 'application/json',
