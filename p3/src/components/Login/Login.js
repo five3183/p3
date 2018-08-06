@@ -18,19 +18,18 @@ class Login extends Component {
 						<input type="password" class="form-control" id="password" placeholder="Password" />
 					</div>
 					<div id="login-links">
+						<div>	
+							<a href="#">Forgot Password?</a>	
+						</div>	
+						<br />	
+						<div>	
+							<button type="button" className="btn btn-primary" id="sign-in">Sign In</button>	
+						</div>	
+						<br />	
 						<div>
-							<a href="#">Forgot Password?</a>
-						</div>
-						<br />
-						<div>
-							<button type="submit" className="btn btn-primary" id="sign-in">Sign In</button>
-						</div>
-						<br />
-						<div>
-							<button type="submit" className="btn btn-primary">Create New Account</button>
-						</div>
+							<a className="nav-link" href="/register"><button type="button" className="btn btn-primary">Create New Account</button></a>	
+						</div>	
 					</div>
-
 				</form>
 			</div>
 		)
@@ -39,7 +38,7 @@ class Login extends Component {
 
 export default Login
 
-window.onload = function() {
+document.onload = () => {
 	document.querySelector("#sign-in").addEventListener('click', (event) => {
 		event.preventDefault()
 		console.log("CLICK")

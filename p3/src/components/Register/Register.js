@@ -28,7 +28,7 @@ class Register extends Component {
 					<div id="login-links">
 						<br />
 						<div>
-							<button type="submit" className="btn btn-primary">Create New Account</button>
+							<button type="button" className="btn btn-primary" id="create-account">Create New Account</button>
 						</div>
 					</div>
 
@@ -40,18 +40,21 @@ class Register extends Component {
 
 export default Register
 
-window.onload = function() {
-	document.querySelector("#sign-in").addEventListener('click', (event) => {
+document.onload = () => {
+	document.querySelector("#create-account").addEventListener('click', (event) => {
 		event.preventDefault()
         console.log("CLICK")
         let name = document.querySelector('#name').value
 		let username = document.querySelector('#user-name').value
 		let email = document.querySelector('#email').value
 		let password = document.querySelector('#password').value
+		
+		console.log("name: " + name)
+		console.log("username: " + username)
 		console.log("email: " + email)
 		console.log("password: " + password)
     })
-    const LOGIN = (name, username, email, password)=> {
+    const REGISTER = (name, username, email, password)=> {
 		fetch("/register", {
     	headers: {
 			'Accept': 'application/json',
