@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Login from "./components/LogIn/LogIn"
+import Register from "./components/Register/Register"
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <Login />
+      <div>
+        <Login />
+        <Register />
+      </div>
     );
   }
 }

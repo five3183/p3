@@ -1,30 +1,31 @@
 import React, { Component } from 'react'
-import './login.css'
+import './register.css'
 
-class Login extends Component {
+class Register extends Component {
 	render() {
 		return (
 			<div className="container" id="login-section">
-				<h3>Sign In</h3>
-				<hr />
+				<h3>Sign Up</h3>
+                <hr />
 				<form>
+                <div className="form-group">
+						<label for="nameInput">Name</label>
+						<input type="text" className="form-control" id="name"  placeholder="Enter name" />
+					</div>
+                    <div className="form-group">
+						<label for="userNameInput">User Name</label>
+						<input type="text" className="form-control" id="user-name" placeholder="Enter User Name" />
+					</div>
 					<div className="form-group">
-						<label for="exampleInputEmail1">Email address</label>
+						<label for="InputEmail1">Email address</label>
 						<input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
 						<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
 					</div>
 					<div className="form-group">
-						<label for="exampleInputPassword1">Password</label>
+						<label for="InputPassword1">Password</label>
 						<input type="password" class="form-control" id="password" placeholder="Password" />
 					</div>
 					<div id="login-links">
-						<div>
-							<a href="#">Forgot Password?</a>
-						</div>
-						<br />
-						<div>
-							<button type="submit" className="btn btn-primary" id="sign-in">Sign In</button>
-						</div>
 						<br />
 						<div>
 							<button type="submit" className="btn btn-primary">Create New Account</button>
@@ -37,25 +38,27 @@ class Login extends Component {
 	}
 }
 
-export default Login
+export default Register
 
 window.onload = function() {
 	document.querySelector("#sign-in").addEventListener('click', (event) => {
 		event.preventDefault()
-		console.log("CLICK")
+        console.log("CLICK")
+        let name = document.querySelector('#name').value
+		let username = document.querySelector('#user-name').value
 		let email = document.querySelector('#email').value
 		let password = document.querySelector('#password').value
 		console.log("email: " + email)
 		console.log("password: " + password)
-	})
-	const LOGIN = (email, password)=> {
-		fetch("/authenticate", {
+    })
+    const LOGIN = (name, username, email, password)=> {
+		fetch("/register", {
     	headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
 		method: "POST",
-		body: JSON.stringify({email: email, password: password})
+		body: JSON.stringify({name: name, username: username, email: email, password: password})
 		})
 		.then(function(res){ console.log(res) })
 		.catch(function(res){ console.log(res) })
